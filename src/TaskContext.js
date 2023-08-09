@@ -6,7 +6,6 @@ export const TaskProvider = ({ children }) => {
   const [tasks, setTasks] = useState([]);
 
   const addTask = (task) => {
-    console.log(task);
     setTasks([...tasks, { ...task, id: uid(), completed: false }]);
   };
 

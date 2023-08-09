@@ -3,7 +3,7 @@ import { useTaskContext } from "./TaskContext";
 import { useUserGroupContext } from "./UserGroupContext";
 
 const TaskList = () => {
-  const { tasks } = useTaskContext();
+  const { tasks, completeTask, deleteTask } = useTaskContext();
   const { userGroups } = useUserGroupContext();
 
   // Add a function to get the user group of a task
@@ -11,11 +11,17 @@ const TaskList = () => {
     userGroups.find((group) => group.id === groupId);
 
   return (
-    <div>
+    <ul>
       {tasks.map((task) => (
-        <Task key={task.id} task={task} group={getGroupById(task.groupId)} />
+        <Task
+          key={task.id}
+          task={task}
+          completeTask={completeTask}
+          deleteTask={deleteTask}
+          group={getGroupById(task.groupId)}
+        />
       ))}
-    </div>
+    </ul>
   );
 };
 

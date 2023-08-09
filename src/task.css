@@ -1,0 +1,58 @@
+/* Task.css */
+
+.task {
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin: 10px 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+}
+
+.completed {
+  text-decoration: line-through;
+  color: #777;
+}
+
+.task-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.task-description {
+  margin-bottom: 8px;
+}
+
+.task-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.task-button {
+  padding: 5px 10px;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.complete-button {
+  background-color: #28a745;
+  color: white;
+}
+
+.complete-button:hover {
+  background-color: #218838;
+}
+
+.delete-button {
+  background-color: #dc3545;
+  color: white;
+}
+
+.delete-button:hover {
+  background-color: #c82333;
+}
