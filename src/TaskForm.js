@@ -1,6 +1,8 @@
 import React, { useState } from "react";
+import { useTaskContext } from "./TaskContext";
 
-const TaskForm = ({ addTask }) => {
+const TaskForm = () => {
+  const { addTask } = useTaskContext();
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
 
@@ -8,7 +10,7 @@ const TaskForm = ({ addTask }) => {
     e.preventDefault();
     if (title.trim() === "") return;
 
-    addTask({ title, description });
+    addTask({ title, description, groupId: 1 });
     setTitle("");
     setDescription("");
   };

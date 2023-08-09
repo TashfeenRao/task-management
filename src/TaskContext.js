@@ -1,12 +1,13 @@
 import React, { createContext, useState, useContext } from "react";
-
+import { uid } from "uid";
 const TaskContext = createContext();
 
 export const TaskProvider = ({ children }) => {
   const [tasks, setTasks] = useState([]);
 
   const addTask = (task) => {
-    setTasks([...tasks, { ...task, id: Date.now(), completed: false }]);
+    console.log(task);
+    setTasks([...tasks, { ...task, id: uid(), completed: false }]);
   };
 
   const completeTask = (taskId) => {
