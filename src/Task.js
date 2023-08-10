@@ -1,12 +1,18 @@
 import React from "react";
 import "./task.css";
+import { useUserGroupContext } from "./UserGroupContext";
 
-const Task = ({ task, completeTask, deleteTask, group }) => {
+const Task = ({ task, completeTask, deleteTask, groupId }) => {
+  const { userGroups } = useUserGroupContext();
+
+  const getByGroupId = (groupId) =>
+    userGroups.find((group) => group.id === parseInt(groupId));
+
   return (
     <li className={`task ${task.completed ? "completed" : ""}`}>
       <div className='task-header'>
         <h3>{task.title}</h3>
-        <p>User Group: {group.name}</p>
+        <p>User Group: {getByGroupId(groupId).name}</p>
       </div>
       <p className='task-description'>{task.description}</p>
       <div className='task-actions'>

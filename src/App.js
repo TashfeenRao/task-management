@@ -1,22 +1,22 @@
 import "./App.css";
-import { useTaskContext } from "./TaskContext";
-import TaskForm from "./TaskForm";
-import TaskList from "./TaskList";
+import GroupSelection from "./GroupSelection";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import TaskPage from "./TaskPage";
 
 function App() {
   return (
-    <div className='App'>
-      <header className='App-header'>
-        <h1>Task Management for funfox</h1>
-      </header>
-      <main>
-        <div className='taskForm'>
-          <TaskForm />
-        </div>
-        <div className='taskList'>
-          <TaskList />
-        </div>
-      </main>
+    <div>
+      <Router>
+        <header className='App-header'>
+          <h1>Task Management for funfox</h1>
+        </header>
+        <main>
+          <Routes>
+            <Route path='/' element={<GroupSelection />} />
+            <Route path='/tasks/:groupId' element={<TaskPage />} />
+          </Routes>
+        </main>
+      </Router>
     </div>
   );
 }
