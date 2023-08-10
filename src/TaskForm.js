@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useTaskContext } from "./TaskContext";
 import styles from "./TaskForm.module.css"; // Import the CSS module
-import { toast } from "react-toastify";
 
 const TaskForm = ({ groupId }) => {
   const { addTask } = useTaskContext();
@@ -15,12 +14,6 @@ const TaskForm = ({ groupId }) => {
     addTask({ title, description, groupId });
     setTitle("");
     setDescription("");
-    // Show toast success message
-    toast.success("Task added successfully", {
-      position: "top-right",
-      autoClose: 3000,
-      hideProgressBar: true,
-    });
   };
 
   return (

@@ -27,6 +27,12 @@ export const TaskProvider = ({ children }) => {
 
       const newTask = await response.json();
       setTasks([...tasks, newTask]);
+      // Show toast success message
+      toast.success("Task added successfully", {
+        position: "top-right",
+        autoClose: 3000,
+        hideProgressBar: true,
+      });
     } catch (error) {
       console.error("Error adding task:", error);
     }
@@ -47,7 +53,7 @@ export const TaskProvider = ({ children }) => {
 
       if (response.ok) {
         setTasks(updatedTasks);
-        toast.success("Task added Updated", {
+        toast.success("Task Updated", {
           position: "top-right",
           autoClose: 3000,
           hideProgressBar: true,

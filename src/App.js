@@ -3,7 +3,10 @@ import GroupSelection from "./GroupSelection";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import TaskPage from "./TaskPage";
 import { ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css"; // Import the default styles
+import "react-toastify/dist/ReactToastify.css"; // Import the default styles2
+import FoxAnimation from "./fox-animation.json";
+import Lottie from "lottie-react";
+const logoImage = process.env.PUBLIC_URL + "/funfox_logo.png";
 
 function App() {
   return (
@@ -11,7 +14,11 @@ function App() {
       <ToastContainer />
       <Router>
         <header className='App-header'>
-          <h1>Task Management for funfox</h1>
+          <Lottie animationData={FoxAnimation} style={{ width: "10%" }} />
+          <div className='title'>
+            <h1>Task Management</h1>
+            <img src={logoImage} alt='Logo' style={{ width: "150px" }} />
+          </div>
         </header>
         <main>
           <Routes>
