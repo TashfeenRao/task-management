@@ -31,16 +31,39 @@ export const TaskProvider = ({ children }) => {
     }
   };
 
-  const completeTask = (taskId) => {
-    const updatedTasks = tasks.map((task) =>
-      task.id === taskId ? { ...task, completed: !task.completed } : task
-    );
-    setTasks(updatedTasks);
-  };
+  const completeTask = async (taskId) => {
+    try {
+      const updatedTasks = tasks.map((task) =>
+        task.id === taskId ? { ...task, completed: !task.completed } : task
+      );
+      const response = await fetch(`${taskURL}/${taskId}`, {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(updatedTasks), // Update with your API structure
+      });
 
-  const deleteTask = (taskId) => {
-    const updatedTasks = tasks.filter((task) => task.id !== taskId);
-    setTasks(updatedTasks);
+      if (response.ok) {
+        setTasks(updatedTasks);
+      }
+    } catch (error) {
+      console.error("Error completing task:", error);
+    }
+  };
+  const deleteTask = async (taskId) => {
+    try {
+      const response = await fetch(`${taskURL}/${taskId}`, {
+        method: "DELETE",
+      });
+
+      if (response.ok) {
+        const updatedTasks = tasks.filter((task) => task.id !== taskId);
+        setTasks(updatedTasks);
+      }
+    } catch (error) {
+      console.error("Error deleting task:", error);
+    }
   };
 
   return (
