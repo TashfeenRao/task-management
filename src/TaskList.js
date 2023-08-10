@@ -1,7 +1,5 @@
-import { useEffect } from "react";
 import Task from "./Task";
 import { useTaskContext } from "./TaskContext";
-import { useUserGroupContext } from "./UserGroupContext";
 
 const TaskList = ({ groupId }) => {
   const { tasks, completeTask, deleteTask } = useTaskContext();

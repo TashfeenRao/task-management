@@ -19,7 +19,7 @@ const Task = ({ task, completeTask, deleteTask, groupId }) => {
         <button
           className='task-button complete-button'
           onClick={() => completeTask(task.id)}>
-          Complete
+          {task.completed ? "Incomplete" : "Complete"}
         </button>
         <button
           className='task-button delete-button'
