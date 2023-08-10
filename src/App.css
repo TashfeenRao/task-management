@@ -110,6 +110,10 @@ button.delete {
   color: #6f42c1;
   font-size: 16px;
 }
+a {
+  text-decoration: none;
+  color: #fd7e14;
+}
 
 /* TaskPage.module.css */
 .task-page-container {

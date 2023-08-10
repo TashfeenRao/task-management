@@ -11,7 +11,7 @@ const TaskForm = ({ groupId }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (title.trim() === "") {
-      toast.warning("Add At lease title", {
+      toast.warning("Add At leaset title", {
         position: "top-right",
         autoClose: 3000,
         hideProgressBar: true,
