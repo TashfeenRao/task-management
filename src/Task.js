@@ -9,7 +9,7 @@ const Task = ({ task, completeTask, deleteTask, groupId }) => {
     userGroups.find((group) => group.id === parseInt(groupId));
 
   return (
-    <li className={`task ${task.completed ? "completed" : ""}`}>
+    <div className={`task ${task.completed ? "completed" : ""}`}>
       <div className='task-header'>
         <h3>{task.title}</h3>
         <p>User Group: {getByGroupId(groupId).name}</p>
@@ -27,7 +27,7 @@ const Task = ({ task, completeTask, deleteTask, groupId }) => {
           Delete
         </button>
       </div>
-    </li>
+    </div>
   );
 };
 

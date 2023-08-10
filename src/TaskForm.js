@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { useTaskContext } from "./TaskContext";
+import styles from "./TaskForm.module.css"; // Import the CSS module
+import { toast } from "react-toastify";
 
 const TaskForm = ({ groupId }) => {
   const { addTask } = useTaskContext();
@@ -13,22 +15,33 @@ const TaskForm = ({ groupId }) => {
     addTask({ title, description, groupId });
     setTitle("");
     setDescription("");
+    // Show toast success message
+    toast.success("Task added successfully", {
+      position: "top-right",
+      autoClose: 3000,
+      hideProgressBar: true,
+    });
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className={styles["task-form-container"]} onSubmit={handleSubmit}>
+      <h2 className={styles["task-form-title"]}>Add New Task</h2>
       <input
         type='text'
         placeholder='Title'
         value={title}
         onChange={(e) => setTitle(e.target.value)}
+        className={styles["task-form-input"]}
       />
       <textarea
         placeholder='Description'
         value={description}
         onChange={(e) => setDescription(e.target.value)}
+        className={styles["task-form-textarea"]}
       />
-      <button type='submit'>Add Task</button>
+      <button type='submit' className={styles["task-form-button"]}>
+        Add Task
+      </button>
     </form>
   );
 };

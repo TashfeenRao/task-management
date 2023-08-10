@@ -8,17 +8,25 @@ const TaskPage = () => {
   const { groupId } = useParams();
   const { userGroups } = useUserGroupContext();
   const location = useLocation();
+  const isGroupFound = userGroups.find(
+    (group) => group.id === parseInt(groupId)
+  );
+
   return (
-    <div>
-      {location.pathname !== "/" && <Link to='/'>Back</Link>}
-      {userGroups.find((group) => group.id === parseInt(groupId)) ? (
-        <>
-          <h2>Tasks for Group {groupId}</h2>
+    <div className='task-page-container'>
+      <div className='task-page-header'>
+        {location.pathname !== "/" && <Link to='/'>Back</Link>}
+        {isGroupFound ? (
+          <h2 className='task-page-title'>Tasks for Group {groupId}</h2>
+        ) : (
+          <p className='task-page-error'>Group not found</p>
+        )}
+      </div>
+      {isGroupFound && (
+        <div className='task-page-content'>
           <TaskForm groupId={groupId} />
           <TaskList groupId={groupId} />
-        </>
-      ) : (
-        <p>Group not found</p>
+        </div>
       )}
     </div>
   );

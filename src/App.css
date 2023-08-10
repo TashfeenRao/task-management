@@ -15,25 +15,6 @@
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
 }
 
-form {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  margin-bottom: 20px;
-}
-
-button {
-  padding: 5px 10px;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  cursor: pointer;
-}
-
-button:hover {
-  background-color: #0056b3;
-}
-
 .task {
   border: 1px solid #ccc;
   padding: 10px;
@@ -50,3 +31,96 @@ button.delete {
   margin-left: 10px;
   background-color: #dc3545;
 }
+
+/* GroupSelection.module.css */
+.group-selection-container {
+  text-align: center;
+  padding: 20px;
+}
+
+.group-selection-title {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.group-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.group-item {
+  background-color: #f0f0f0;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.group-number {
+  font-weight: bold;
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+
+.group-members-link {
+  text-decoration: none;
+  color: #007bff;
+  font-size: 16px;
+}
+
+/* TaskPage.module.css */
+.task-page-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px;
+  background-color: #f8f8f8;
+  min-height: 100vh;
+}
+
+.task-page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 800px;
+  margin-bottom: 20px;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.task-page-title {
+  font-size: 24px;
+  color: #333333;
+}
+
+.task-page-error {
+  color: #f44336;
+  font-size: 18px;
+}
+
+.task-page-content {
+  width: 100%;
+  max-width: 800px;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.task-page-content h2 {
+  font-size: 20px;
+  color: #333333;
+  margin-bottom: 20px;
+}
+
+.back-link {
+  color: #007bff;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+/* Styling for TaskForm and TaskList can also be added here */

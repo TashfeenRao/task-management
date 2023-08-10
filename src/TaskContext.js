@@ -1,4 +1,5 @@
 import React, { createContext, useState, useContext, useEffect } from "react";
+import { toast } from "react-toastify";
 import { uid } from "uid";
 const TaskContext = createContext();
 
@@ -46,6 +47,11 @@ export const TaskProvider = ({ children }) => {
 
       if (response.ok) {
         setTasks(updatedTasks);
+        toast.success("Task added Updated", {
+          position: "top-right",
+          autoClose: 3000,
+          hideProgressBar: true,
+        });
       }
     } catch (error) {
       console.error("Error completing task:", error);
@@ -60,6 +66,11 @@ export const TaskProvider = ({ children }) => {
       if (response.ok) {
         const updatedTasks = tasks.filter((task) => task.id !== taskId);
         setTasks(updatedTasks);
+        toast.success("Task Deleted", {
+          position: "top-right",
+          autoClose: 3000,
+          hideProgressBar: true,
+        });
       }
     } catch (error) {
       console.error("Error deleting task:", error);
