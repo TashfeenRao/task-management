@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useTaskContext } from "./TaskContext";
 import styles from "./TaskForm.module.css"; // Import the CSS module
+import { toast } from "react-toastify";
 
 const TaskForm = ({ groupId }) => {
   const { addTask } = useTaskContext();
@@ -9,7 +10,14 @@ const TaskForm = ({ groupId }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (title.trim() === "") return;
+    if (title.trim() === "") {
+      toast.warning("Add At lease title", {
+        position: "top-right",
+        autoClose: 3000,
+        hideProgressBar: true,
+      });
+      return;
+    }
 
     addTask({ title, description, groupId });
     setTitle("");

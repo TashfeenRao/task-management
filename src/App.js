@@ -14,10 +14,10 @@ function App() {
       <ToastContainer />
       <Router>
         <header className='App-header'>
-          <Lottie animationData={FoxAnimation} style={{ width: "10%" }} />
+          <Lottie animationData={FoxAnimation} className='animated-logo' />
           <div className='title'>
             <h1>Task Management</h1>
-            <img src={logoImage} alt='Logo' style={{ width: "150px" }} />
+            <img src={logoImage} alt='Logo' className='logo-img' />
           </div>
         </header>
         <main>

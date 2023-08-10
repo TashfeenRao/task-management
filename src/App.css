@@ -20,6 +20,36 @@
   justify-content: center;
   align-items: center;
 }
+.logo-img {
+  width: 150px;
+  height: auto;
+}
+.animated-logo {
+  width: 100px;
+  height: auto;
+}
+@media screen and (max-width: 600px) {
+  /* CSS rules to apply for screens less than 600px wide */
+  .logo-img {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  /* CSS rules to apply for screens less than 600px wide */
+  .animated-logo {
+    display: none;
+  }
+}
+@media screen and (max-width: 300px) {
+  /* CSS rules to apply for screens less than 600px wide */
+  h1 {
+    font-size: 15px;
+  }
+  h2 {
+    font-size: 15px;
+  }
+}
 
 .task {
   border: 1px solid #ccc;
@@ -53,14 +83,20 @@ button.delete {
   list-style: none;
   padding: 0;
   margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .group-item {
-  background-color: #f0f0f0;
+  background-color: #fd7e14;
   padding: 10px;
   margin-bottom: 10px;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 300px;
+  height: auto;
 }
 
 .group-number {
@@ -71,7 +107,7 @@ button.delete {
 
 .group-members-link {
   text-decoration: none;
-  color: #007bff;
+  color: #6f42c1;
   font-size: 16px;
 }
 
@@ -124,7 +160,7 @@ button.delete {
 }
 
 .back-link {
-  color: #007bff;
+  color: #6f42c1;
   text-decoration: none;
   font-size: 16px;
 }
